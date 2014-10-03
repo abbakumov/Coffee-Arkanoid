@@ -1,4 +1,4 @@
-#Класс для ячейки нашего поля.
+# Class for cell of our game field
 class Cell
 	constructor: (config)->
 		@setConfig config

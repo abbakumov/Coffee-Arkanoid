@@ -1,4 +1,4 @@
-# Класс для манипуляции DOM-ом в любом виде.
+# Class for DOM manipulations
 class Field
 	constructor: (@size) ->
 		do @initCells
