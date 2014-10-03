@@ -12,3 +12,6 @@ class Field
 
 	getCell: (position)	->
 		@cells[(position.y * @size.x) + position.x]
+
+	refreshField: ->
+		cell.refreshCellView() for cell in @cells
