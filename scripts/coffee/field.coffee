@@ -2,10 +2,10 @@
 class Field
 	constructor: (@size) ->
 		do @initCells
+
 	initCells: ->
-		@field = 
+		#generate cells
+		@cells = [] 
 		for y in [0...@size.y]
-			arr = []
 			for x in [0...@size.x]
-				arr.push new Cell({y: y, x: x, status: 0});
-			arr
+				@cells.push new Cell({y: y, x: x, status: 0})
