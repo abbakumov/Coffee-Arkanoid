@@ -9,3 +9,6 @@ class Field
 		for y in [0...@size.y]
 			for x in [0...@size.x]
 				@cells.push new Cell({y: y, x: x, status: 0})
+
+	getCell: (position)	->
+		@cells[(position.y * @size.x) + position.x]
