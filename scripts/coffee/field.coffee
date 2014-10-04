@@ -10,7 +10,7 @@ class Field
 			for x in [0...@size.x]
 				@cells.push new Cell({y: y, x: x, status: 0})
 
-	getCell: ()	->
+	getCell: ->
 		#work with one or two arguments
 		return if arguments.length > 2 || arguments.length == 0
 		position = switch arguments.length
