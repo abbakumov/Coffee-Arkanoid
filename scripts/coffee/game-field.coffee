@@ -28,7 +28,6 @@ class GameField
 		cell.gameObject = null
 		@fieldView.setCellStatus {x: position.x, y: position.y}, 0
 
-
 	setObjectToCell: (obj, position) ->
 		cell = @cells[position.x][position.y]
 		cell.status = 1
