@@ -1,1 +1,0 @@
-class Brick extends GameObject
