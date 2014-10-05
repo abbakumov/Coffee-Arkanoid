@@ -11,7 +11,7 @@ class GameField
 			for y in [0...@size.y]
 				x: x
 				y: y
-				status: 0
+				gameObject: null
 
 	getCellStatus: (cell) ->
 		if @fieldControl[cell.x][cell.y]
