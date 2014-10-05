@@ -32,6 +32,7 @@ class ViewField
 	clear: ->
 		do cell.deactivate for cell in @cells
 
+
 # Class for cell DOM
 class ViewCell
 	constructor: (position)->
