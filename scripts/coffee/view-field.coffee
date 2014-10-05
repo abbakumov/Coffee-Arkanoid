@@ -1,9 +1,9 @@
 # Class for DOM manipulations
 class ViewField
 	constructor: (@size) ->
-		do @initCells
+		do @_initCells
 
-	initCells: ->
+	_initCells: ->
 		#generate cells
 		@cells = [] 
 		for y in [0...@size.y]
@@ -12,7 +12,7 @@ class ViewField
 				do loopCell.deactivate
 				@cells.push loopCell
 
-	getCell: ->
+	_getCell: ->
 		#work with one or two arguments
 		return if arguments.length > 2 || arguments.length == 0
 		position = switch arguments.length
@@ -23,7 +23,7 @@ class ViewField
 		@cells[(position.y * @size.x) + position.x]
 
 	setCellStatus: (cell, status) ->
-		cell = @getCell(cell)
+		cell = @_getCell(cell)
 		if status
 			do cell.activate
 		else
