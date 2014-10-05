@@ -4,3 +4,6 @@ class GameObject
 
 	spawn: ->
 		@gameField.setObjectToCell @, @position
+
+	destroy: ->
+		@gameField.clearCell @position
