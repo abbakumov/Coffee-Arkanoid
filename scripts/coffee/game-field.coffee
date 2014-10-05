@@ -12,3 +12,12 @@ class GameField
 				x: x
 				y: y
 				status: 0
+
+	getCellStatus: (cell) ->
+		if @fieldControl[cell.x][cell.y]
+			@fieldControl[cell.x][cell.y].status
+		else -1
+
+	setCellStatus: (cell, status) ->
+		@fieldControl[cell.x][cell.y].status = status
+		@fieldView.setCellStatus cell, status
