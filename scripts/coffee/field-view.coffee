@@ -20,5 +20,10 @@ class FieldView
 		return if position.x > @size.x || position.y > @size.y
 		@cells[(position.y * @size.x) + position.x]
 
+	setCellStatus: (cell, status) ->
+		cell = @getCell(cell)
+		cell.status = status
+		do cell.refreshCellView
+
 	refreshField: ->
 		cell.refreshCellView() for cell in @cells
