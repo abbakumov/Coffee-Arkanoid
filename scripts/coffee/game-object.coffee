@@ -1,3 +1,3 @@
-# Class for all game objects
+# base class for all game objects
 class GameObject
-	constructor: ->
+	constructor: (@position, @gameField) ->
