@@ -1,5 +1,5 @@
 # Class for DOM manipulations
-class Field
+class FieldView
 	constructor: (@size) ->
 		do @initCells
 
