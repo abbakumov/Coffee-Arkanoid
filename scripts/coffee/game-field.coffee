@@ -24,12 +24,16 @@ class GameField
 
 	clearCell: (position) ->
 		cell = @cells[position.x][position.y]
+		if !cell then return false
 		cell.status = 0
 		cell.gameObject = null
 		@fieldView.setCellStatus {x: position.x, y: position.y}, 0
+		return true
 
 	setObjectToCell: (obj, position) ->
 		cell = @cells[position.x][position.y]
+		if !cell then return false
 		cell.status = 1
 		cell.gameObject = obj
 		@fieldView.setCellStatus {x: position.x, y: position.y}, 1
+		return true
