@@ -4,7 +4,9 @@ class Player extends GameObject
 
 	spawn: ->
 		for i in [0..@size]
-			@gameField.setObjectToCell @, { y: @position.y, x: @position.x + i}
+			if not @gameField.setObjectToCell @, { y: @position.y, x: @position.x + i}
+				return false
+		return true
 
 	destroy: ->
 		for i in [0..@size]
