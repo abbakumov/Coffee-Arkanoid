@@ -1,6 +1,5 @@
 class Ball extends GameObject
 	constructor: (@position, @gameField, @vector) ->
-		@priveousPosition = @position
 		super
 
 	move: ->
@@ -16,6 +15,5 @@ class Ball extends GameObject
 
 	step: (cellToMove) ->
 		do @destroy
-		@priveousPosition = @position
 		@position = cellToMove
 		do @spawn
