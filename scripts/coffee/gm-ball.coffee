@@ -16,7 +16,6 @@ class Ball extends GameObject
 
 	step: (cellToMove) ->
 		do @destroy
-		console.log 'destroyed'
+		@priveousPosition = @position
 		@position = cellToMove
-		console.log @position
 		do @spawn
