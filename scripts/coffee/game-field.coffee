@@ -1,8 +1,8 @@
-# Class for game field.
-# Will control the field view
+# class for game field.
+# will control the field view
 class GameField
 	constructor: (size) ->
-		@size = size || { x:12, y:16 } #constant size to test
+		@size = size || { x:12, y:16 } # constant size to test
 		@fieldView = new ViewField @size
 		@cells = do @_createCells
 
