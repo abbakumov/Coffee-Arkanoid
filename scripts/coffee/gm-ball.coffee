@@ -27,6 +27,10 @@ class Ball extends GameObject
 		@position = cellToMove
 		do @spawn
 
+	_checkDirection: ->
+		# check 3 cells in the direction of vector
+		
+
 	_vectorRebound: (wall) ->
 		if wall.x == 0
 			# y-rebound

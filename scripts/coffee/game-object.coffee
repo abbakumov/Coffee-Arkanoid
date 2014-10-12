@@ -8,3 +8,6 @@ class GameObject
 
 	destroy: ->
 		@gameField.clearCell @position
+
+	strike: ->
+		false
