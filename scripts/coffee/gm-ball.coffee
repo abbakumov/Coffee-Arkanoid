@@ -2,6 +2,12 @@ class Ball extends GameObject
 	constructor: (@position, @gameField, @vector) ->
 		super
 
+	move: (direction) ->
+		# move ignoring vector
+		position = {x: @position.x + direction.x, y: @position.y + direction.y}
+		if @gameField.checkCell position
+			@step position
+
 	vectorMove: ->
 		checkResult = do @_checkDirection
 		if checkResult == 0

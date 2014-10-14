@@ -19,3 +19,6 @@ class Player extends GameObject
 		do @destroy
 		@position.x += direction
 		do @spawn
+
+	_moveObjectssOnPlatform: ->
+		
