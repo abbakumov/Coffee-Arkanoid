@@ -7,8 +7,8 @@ class Ball extends GameObject
 		if checkResult == 0
 			do @step
 		else
-			@_rebound checkResult
 			@_attack checkResult
+			@_rebound checkResult
 			do @move # again
 
 	step: (cellToMove) ->
@@ -19,7 +19,6 @@ class Ball extends GameObject
 		do @spawn
 
 	_checkDirection: -> # check 3 cells in the direction of vector
-		# first calculate the directions to check
 		checkDirections = [{ x: @vector.x, y: 0 }, { x: 0, y: @vector.y}, @vector]
 		# calculate wall
 		for direction in checkDirections
@@ -29,10 +28,8 @@ class Ball extends GameObject
 
 	_rebound: (cell) ->
 		wall = { x: (cell.x - @position.x), y: (cell.y - @position.y) }
-		if wall.x != 0
-			@vector.x *= -1
-		if wall.y != 0
-			@vector.y *= -1
+		if wall.x != 0 then @vector.x *= -1
+		if wall.y != 0 then @vector.y *= -1
 
 	_attack: (cell) ->
 		obj = @gameField.getCellObject(cell)
