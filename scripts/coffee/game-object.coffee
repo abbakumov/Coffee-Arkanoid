@@ -9,5 +9,8 @@ class GameObject
 	destroy: ->
 		@gameField.clearCell @position
 
+	move: ->
+		false
+
 	strike: ->
 		false

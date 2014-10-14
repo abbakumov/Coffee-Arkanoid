@@ -2,7 +2,7 @@ class Ball extends GameObject
 	constructor: (@position, @gameField, @vector) ->
 		super
 
-	move: ->
+	vectorMove: ->
 		checkResult = do @_checkDirection
 		if checkResult == 0
 			do @step
