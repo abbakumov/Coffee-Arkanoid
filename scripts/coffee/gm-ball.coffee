@@ -3,38 +3,38 @@ class Ball extends GameObject
 		super
 
 	move: ->
-		cellToMove =
-			x: @position.x + @vector.x
-			y: @position.y + @vector.y
-		if @gameField.checkCell cellToMove
-			@step cellToMove
+		checkResult = do @_checkDirection
+		if checkResult == 0
+			do @step
 		else
-			do @changeVector
+			@_rebound checkResult
+			@_attack checkResult
 			do @move # again
 
-	changeVector: -> # method must return the ball to the right path
-		# first calculate the directions to check
-		checkDirections = [{ x: @vector.x, y: 0 }, { x: 0, y: @vector.y}]
-		# calculate right direction
-		for direction in checkDirections
-			cell = { x: @position.x + direction.x, y: @position.y + direction.y }
-			if @gameField.getCellStatus(cell) != 0
-				# redirect vector after calculate right direction
-				@_vectorRebound direction
-
 	step: (cellToMove) ->
+		if not cellToMove
+			cellToMove = { x: @position.x + @vector.x, y: @position.y + @vector.y }
 		do @destroy
 		@position = cellToMove
 		do @spawn
 
-	_checkDirection: ->
-		# check 3 cells in the direction of vector
-		
+	_checkDirection: -> # check 3 cells in the direction of vector
+		# first calculate the directions to check
+		checkDirections = [{ x: @vector.x, y: 0 }, { x: 0, y: @vector.y}, @vector]
+		# calculate wall
+		for direction in checkDirections
+			cell = { x: @position.x + direction.x, y: @position.y + direction.y }
+			return cell if @gameField.getCellStatus(cell) != 0
+		return 0
 
-	_vectorRebound: (wall) ->
-		if wall.x == 0
-			# y-rebound
-			@vector.y *= -1
-		else
-			# x-rebound
+	_rebound: (cell) ->
+		wall = { x: (cell.x - @position.x), y: (cell.y - @position.y) }
+		if wall.x != 0
 			@vector.x *= -1
+		if wall.y != 0
+			@vector.y *= -1
+
+	_attack: (cell) ->
+		obj = @gameField.getCellObject(cell)
+		if obj != null && obj != -1 && obj.strike
+			do obj.strike
