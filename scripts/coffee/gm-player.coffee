@@ -16,9 +16,16 @@ class Player extends GameObject
 		for i in [0..@size]
 			if not @gameField.checkCell { y: @position.y, x: (@position.x + i + direction)}
 				return false
+		# first move objects on platform
+		@_moveObjectOnPlatform direction
+		# next move platform
 		do @destroy
 		@position.x += direction
 		do @spawn
 
-	_moveObjectssOnPlatform: ->
-		
+	_moveObjectOnPlatform: (direction) ->
+		for i in [0..@size]
+			cellObject = @gameField.getCellObject {x: (@position.x + i) , y: (@position.y - 1)}
+			if cellObject != -1 && cellObject != null
+				cellObject.move {x: direction, y: 0}
+				break

@@ -15,7 +15,7 @@ class Ball extends GameObject
 		else
 			@_attack checkResult
 			@_rebound checkResult
-			do @move # again
+			do @vectorMove # again
 
 	step: (cellToMove) ->
 		if not cellToMove
