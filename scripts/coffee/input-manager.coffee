@@ -16,14 +16,10 @@ class InputManager
 
 	listen: ->
 		map =
-			38: 0 # up
-			39: 1 # right
-			40: 2 # down
-			37: 3 # left
-			87: 0 # W
-			68: 1 # D
-			83: 2 # S
-			65: 3 # A
+			39: 1  # right
+			37: -1 # left
+			68: 1  # D
+			65: -1 # A
 
 		document.addEventListener 'keydown', (event) =>
 			mapped = map[event.which]
