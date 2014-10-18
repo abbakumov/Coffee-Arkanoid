@@ -10,6 +10,13 @@ gulp.task('coffee', function(){
 		.pipe(gulp.dest('scripts/js/'));
 });
 
+gulp.task('final', function() {
+	gulp.src('scripts/coffee/*.coffee')
+		.pipe(coffee({bare: true}).on('error', gutil.log))
+		.pipe(concat('compiled.js'))
+		.pipe(gulp.dest('scripts/'));
+});
+
 gulp.task('production', function() {
 	gulp.src('scripts/coffee/*.coffee')
 		.pipe(coffee({bare: true}).on('error', gutil.log))
@@ -18,8 +25,8 @@ gulp.task('production', function() {
 		.pipe(gulp.dest('scripts/'));
 });
 
-gulp.task('default', ['coffee', 'production']);
+gulp.task('default', ['coffee', 'final', 'production']);
 
 gulp.task('watch', function(){
-	gulp.watch('scripts/coffee/*.coffee', ['coffee', 'production']);
+	gulp.watch('scripts/coffee/*.coffee', ['coffee', 'final', 'production']);
 });
