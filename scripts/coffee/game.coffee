@@ -11,6 +11,7 @@ class Game
 		do @initBricks
 
 	start: (speed = 5) ->
+		document.getElementsByClassName('info-block')[0].style.display = 'none';
 		frameTime = 1000 / speed
 		setInterval =>
 			do @gameStep

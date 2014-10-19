@@ -14,3 +14,20 @@
 .game-field td.active{
 	background: #000;
 }
+.info-block{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 262px;
+	margin: auto;
+	height: 41px;
+	text-align: center;
+	color: black;
+	background: white;
+	padding: 16px 0;
+	width: 550px;
+	font-family: arial;
+	text-transform: uppercase;
+	word-spacing: 8px;
+	font-size: 35px;
+}
