@@ -1,13 +1,23 @@
 class Game
 	constructor: ->
+		do @init
 		do @start
 
-	start: ->
+	init: ->
 		@gameField = new GameField()
 		@ball = new Ball {x: 5, y:14}, @gameField, {x: -1, y: -1}
 		@player = new Player {x: 3, y:15}, @gameField, 5
 		do @initInputManager
 		do @initBricks
+
+	start: (speed = 5) ->
+		frameTime = 1000 / speed
+		setInterval =>
+			do @gameStep
+		,frameTime
+
+	gameStep: ->
+		do @ball.vectorMove
 
 	initBricks: ->
 		for i in [0..11]

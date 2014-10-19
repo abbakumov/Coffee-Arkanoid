@@ -25,4 +25,4 @@ class InputManager
 			mapped = map[event.which]
 			if mapped
 				do event.preventDefault
-				@.run 'move', mapped
+				@run 'move', mapped
