@@ -1,7 +1,7 @@
 class Game
 	constructor: ->
 		do @init
-		do @start
+		# do @start
 
 	init: ->
 		@gameField = new GameField()
@@ -26,11 +26,8 @@ class Game
 
 	initInputManager: ->
 		@inputManager = new InputManager()
-		@inputManager.on 'move', @move.bind(this)
+		@inputManager.on 'move', @move.bind this
+		@inputManager.on 'start', @start.bind this
 
 	move: (direction)->
 		@player.move direction
-
-
-window.onload = ->
-	new Game()

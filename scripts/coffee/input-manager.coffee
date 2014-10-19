@@ -26,3 +26,5 @@ class InputManager
 			if mapped
 				do event.preventDefault
 				@run 'move', mapped
+			if event.which == 32
+				@run 'start'
